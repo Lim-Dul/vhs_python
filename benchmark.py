@@ -19,7 +19,7 @@ def StrichlisteCounter():
     """ Strichliste mit Counter """
     strichliste = Counter("".join(text).lower())
     print(strichliste)
-    
+
 
 def LoopCount():
     """ Loop mit Count """
