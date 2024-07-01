@@ -55,7 +55,7 @@ print("Durchschnittsalter:", age_avg)
 # a) Vornamen mit for-Schleife zu einer einzigen Zeichenkette zusammensetzen
 alle_vornamen = ""
 for vorname in vornamen:
-    alle_vornamen += vornamen
+    alle_vornamen += vorname
 
 strichliste = Counter(alle_vornamen)
 print(alle_vornamen)
