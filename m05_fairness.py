@@ -20,16 +20,17 @@ for augenzahl, anzahl in sorted(strichliste.items()):
 x_achse, y_achse = zip(*strichliste.items())
 y_achse = np.array(y_achse) / i
 
-# Abbildung erstellen
-abb = plt.figure("Fairness von Würfeln")
-
-# Balkendiagramm erstellen
+# Abbildung und Diagramm erstellen
+plt.figure("Fairness von Würfeln")
 plt.bar(x_achse, y_achse)
 
 # Beschriftung hinzufügen
 plt.title("Fairness")
 plt.xlabel("Augenzahl")
 plt.ylabel("Prozent")
+
+# Referenzlinie hinzufügen
+plt.axhline(y=0.166, color="r", linestyle="-")
 
 # Diagramm anzeigen
 plt.show()
