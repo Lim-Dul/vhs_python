@@ -6,6 +6,7 @@ from random import randint
 import matplotlib.pyplot as plt
 import numpy as np
 
+
 # Ist der Würfel fair?
 wuerfe = []
 
