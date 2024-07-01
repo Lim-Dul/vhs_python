@@ -81,11 +81,21 @@ print("altersangaben absteigend sortiert:", sorted(altersangaben, reverse=True))
 # erzeugt eine Liste von 2-Tupeln aus vorname und altersangabe
 print(list(zip(vornamen, altersangaben)))
 print(sorted(zip(vornamen, altersangaben)))
+print(sorted(zip(altersangaben, vornamen)))
+print(sorted(zip(vornamen, altersangaben), key=lambda x: x[1]))
 
 # 7) Vorname der jüngsten Person
+print("Jüngste Person:", sorted(zip(vornamen, altersangaben), key=lambda x: x[1])[0][0])
+print("Jüngste Person:", min(zip(altersangaben, vornamen))[1])
 
 # 8) Anzahl der Teilnehmenden
+print("Anzahl Teilnehmende:", len(vornamen))
 
 # 9) Anzahl unterschiedlicher Wohnorte
+# Idee: Nutze die built-in Funktion set, um eine Menge aus der Liste der Orte zu erzeugen.
+# Mengen haben die Eigenschaft, dass keine Duplikate vorkommen können.
+# Set erzeugt eine Hash Table
+print(set(orte))
+print("Anzahl unterschiedlicher Wohnorte:", len(set(orte)))
 
 # 10) Häufigster Wohnort
