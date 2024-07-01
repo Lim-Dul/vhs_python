@@ -12,7 +12,7 @@ from random import randint, sample
 lottozahlen = []
 i = 0
 while len(lottozahlen) < 6:
-    # i = i + 1 # Hilfsvariable zur Iterations-Zählung
+    # i += 1 # Hilfsvariable zur Iterations-Zählung
     # print("Iteration:", i)
     kugel = randint(1, 49) # Zufällige Zahl generieren
     # print("Gezogen:", kugel)
