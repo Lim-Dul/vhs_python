@@ -24,7 +24,7 @@ while len(lottozahlen) < 6:
         # print("Lottozahlen bisher:", lottozahlen)
 print("Lottozahlen für heute:", lottozahlen)
 
-# Die Lösung mit der dummen Liste
-behaelter = list(range(1, 50)) # Mit 49 Kugeln befüllen (warum ist die Range nach oben offen PYTHON??????)
-print(behaelter)
-print("Lottozahlen für heute:", sample(behaelter, 6)) # Mit Funktion sample 6 Elemente ohne Wiederholungen ziehen
+# Die Lösung mit sample
+topf = list(range(1, 50)) # Mit 49 Kugeln befüllen (warum ist die Range nach oben offen PYTHON??????)
+print(topf)
+print("Lottozahlen für heute:", sample(topf, k=6)) # Mit Funktion sample 6 Elemente ohne Wiederholungen ziehen
