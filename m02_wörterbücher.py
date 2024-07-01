@@ -11,3 +11,7 @@ de_uk = {"Tisch": "table",
 
 # Nachschlagen eines Schlüssels im Wörterbuch über eckige Klammern.
 print(de_uk["Tisch"])
+
+# Eingabe vom Anwender über die Tastatur entgegennehmen:
+wort_de = input("Bitte gib ein deutsches Wort ein: ")
+print("Englisch:", de_uk[wort_de])
