@@ -12,21 +12,19 @@ from random import randint, sample
 lottozahlen = []
 i = 0
 while len(lottozahlen) < 6:
-    i = i + 1 # Hilfsvariable zur Iterations-Zählung
-    print("Iteration:", i)
+    # i = i + 1 # Hilfsvariable zur Iterations-Zählung
+    # print("Iteration:", i)
     kugel = randint(1, 49) # Zufällige Zahl generieren
-    print("Gezogen:", kugel)
+    # print("Gezogen:", kugel)
     if kugel in lottozahlen: # Check, ob sie schon einmal gezogen wurde
-        print("Kugel", kugel, "war schon gezogen.")
+        # print("Kugel", kugel, "war schon gezogen.")
         continue # Einfach nix machen (nächste Iteration)
     else:
         lottozahlen.append(kugel) # Zahl in die Liste aufnehmen
-        print("Lottozahlen bisher:", lottozahlen)
+        # print("Lottozahlen bisher:", lottozahlen)
 print("Lottozahlen für heute:", lottozahlen)
 
 # Die Lösung mit der dummen Liste
-behaelter = [] # Kugelbehälter initialisieren
-for kugel in range(1, 50): # Mit 49 Kugeln befüllen (warum ist die Range nach oben offen PYTHON??????)
-    behaelter.append(kugel)
+behaelter = list(range(1, 50)) # Mit 49 Kugeln befüllen (warum ist die Range nach oben offen PYTHON??????)
 print(behaelter)
 print("Lottozahlen für heute:", sample(behaelter, 6)) # Mit Funktion sample 6 Elemente ohne Wiederholungen ziehen
