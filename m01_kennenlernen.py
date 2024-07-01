@@ -1,5 +1,5 @@
 """
-Erste Variablen (Listen) und andere Übungen
+Modul 01: Erste Variablen (Listen) und andere Übungen
 """
 # from statistics import mean
 
