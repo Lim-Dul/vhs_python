@@ -12,5 +12,24 @@ wuerfe = []
 for i in range(1000):
     wuerfe.append(randint(1, 6))
 strichliste = Counter(wuerfe)
+print(sorted(strichliste.items()))
 for augenzahl, anzahl in sorted(strichliste.items()):
-    print("Augenzahl:", augenzahl, "|", anzahl)
+    print("Augenzahl:", augenzahl, "|", str(round(anzahl / i, 2)) + "%")
+
+# strichliste in zwei separate Listen entpacken (deswegen zip mit *)
+x_achse, y_achse = zip(*strichliste.items())
+y_achse = np.array(y_achse) / i
+
+# Abbildung erstellen
+abb = plt.figure("Fairness von Würfeln")
+
+# Balkendiagramm erstellen
+plt.bar(x_achse, y_achse)
+
+# Beschriftung hinzufügen
+plt.title("Fairness")
+plt.xlabel("Augenzahl")
+plt.ylabel("Prozent")
+
+# Diagramm anzeigen
+plt.show()
