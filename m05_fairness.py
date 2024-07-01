@@ -31,7 +31,7 @@ plt.xlabel("Augenzahl")
 plt.ylabel("Prozent")
 
 # Referenzlinie hinzufügen
-plt.axhline(y=0.166, color="r", linestyle="-")
+plt.axhline(y=0.167, color="r", linestyle="-")
 
 # Diagramm anzeigen
 plt.show()
