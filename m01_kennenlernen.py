@@ -4,6 +4,7 @@ Modul 01: Erste Variablen (Listen) und andere Übungen
 # from statistics import mean
 from collections import Counter
 
+
 # Listen erkennen wir an eckigen Klammern. Listeneinträge werden durch Kommata getrennt.
 # Hier: Die Anweisung rechts vom Gleichzeitszeichen definiert eine Liste.
 # Durch die Gleichheitszeichen wird eine Variable vornamen definiert, der die Liste zugewiesen wird.

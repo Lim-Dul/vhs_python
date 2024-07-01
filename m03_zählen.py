@@ -3,6 +3,7 @@ Modul 03: Zählen
 """
 from collections import Counter
 
+
 satz = "Fischers Fritze fischt frische Fische"
 
 # 1) Häufigkeit des Buschstabens "e"
