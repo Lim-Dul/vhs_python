@@ -1,7 +1,8 @@
 """
 Erste Variablen (Listen) und andere Übungen
 """
-from statistics import mean
+# from statistics import mean
+
 # Listen erkennen wir an eckigen Klammern. Listeneinträge werden durch Kommata getrennt.
 # Hier: Die Anweisung rechts vom Gleichzeitszeichen definiert eine Liste.
 # Durch die Gleichheitszeichen wird eine Variable vornamen definiert, der die Liste zugewiesen wird.
@@ -28,38 +29,58 @@ orte = ["Bad Salzuflen", "Dietzenbach", "Bielefeld", "Bielefeld", "Spenge", "Bie
 # print("Durchschnittsalter:", durchschnitt)
 
 # # c) for-Schleife
-# Summe, anzahl = 0, 0 # Alternative Doppeldeklaration
+# # Summe, anzahl = 0, 0 # Alternative Doppeldeklaration
+# summe = 0
+# anzahl = 0
 
-anzahl = 0
+# # Lies: Für (for) jedes alter in der Liste der altersangaben wiederhole die nachfolgenden Anweisungen:
+# for alter in altersangaben:
+#     summe += alter # Kurz für: summe = summe + alter
+#     anzahl += 1 # Kurz für: anzahl = anzahl +1
+
+# durchschnitt = summe / anzahl
+# print(durchschnitt)
+
+# ---
 # Meine Lösung
 age_sum = sum(altersangaben)
 age_len = len(altersangaben)
 age_avg = age_sum / age_len
 print("Durchschnittsalter:", age_avg)
+# ---
 
-# 2) Häufigster Buchstage im Vornamen
-first_names_concat = "".join(vornamen)
+# 2) Häufigster Buchstabe im Vornamen
+
+# ---
+# Meine Lösung 1
+first_names_concat_low = "".join(vornamen).lower()
 # print(first_names_concat)
-first_names_unique = "".join(set(first_names_concat.lower()))
+first_names_unique = "".join(set(first_names_concat_low))
 # print(first_names_unique)
-# for character in first_names_unique:
-#     print(character + ":", first_names_concat.lower().count(character))
 char_list = []
 for character in first_names_unique:
-    char_list.append([character, first_names_concat.lower().count(character)])
+    char_list.append([character, first_names_concat_low.count(character)])
 # print(char_list)
 char_list_sorted = sorted(char_list, key=lambda x: x[1], reverse=True)
 # print(char_list_sorted)
 for char_count_pair in char_list_sorted:
     print(char_count_pair[0] + ":", char_count_pair[1])
+# ---
 
 # 3) Häufigkeit der Wohnorte
 
 # 4) Vornamen in alphabetisch sortierter Reihenfolge ausgeben
+print("vornamen aufsteigend sortiert:", sorted(vornamen))
+print("vornamen absteigend sortiert:", sorted(vornamen, reverse=True))
 
 # 5) Altersangaben sortiert ausgeben
+print("altersangaben aufsteigend sortiert:", sorted(altersangaben))
+print("altersangaben absteigend sortiert:", sorted(altersangaben, reverse=True))
 
 # 6) Vornamen nach Alter sortiert ausgeben
+# erzeugt eine Liste von 2-Tupeln aus vorname und altersangabe
+print(list(zip(vornamen, altersangaben)))
+print(sorted(zip(vornamen, altersangaben)))
 
 # 7) Vorname der jüngsten Person
 
