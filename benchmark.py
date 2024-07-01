@@ -7,18 +7,19 @@ from wonderwords import RandomWord
 
 text = []
 
+
 def GenText():
     """ Generate ONE MILLION words """
     while len(text) < 1000000:
         text.extend(RandomWord().random_words(1000))
     print(len(text))
 
-cProfile.run("GenText()")
 
 def StrichlisteCounter():
     """ Strichliste mit Counter """
     strichliste = Counter("".join(text).lower())
     print(strichliste)
+    
 
 def LoopCount():
     """ Loop mit Count """
@@ -31,5 +32,6 @@ def LoopCount():
     char_list_sorted = sorted(char_list, key=lambda x: x[1], reverse=True)
     print(char_list_sorted)
 
+cProfile.run("GenText()")
 cProfile.run("StrichlisteCounter()")
 cProfile.run("LoopCount()")
