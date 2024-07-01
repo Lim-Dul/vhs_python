@@ -83,6 +83,7 @@ print(strichliste)
 # # ---
 
 # 3) Häufigkeit der Wohnorte
+# 10) Häufigster Wohnort
 strichliste = Counter(orte)
 print(strichliste)
 print(strichliste.most_common(1))
@@ -115,5 +116,3 @@ print("Anzahl Teilnehmende:", len(vornamen))
 # Set erzeugt eine Hash Table
 print(set(orte))
 print("Anzahl unterschiedlicher Wohnorte:", len(set(orte)))
-
-# 10) Häufigster Wohnort
