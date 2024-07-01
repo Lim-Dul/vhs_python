@@ -63,7 +63,7 @@ print(alle_vornamen)
 print(strichliste)
 
 # b) join-Methode
-# "".join(vornamen) fügt alle Listenelemente ohne Trennzeichen hintereinande
+# "".join(vornamen) fügt alle Listenelemente ohne Trennzeichen hintereinander
 strichliste = Counter("".join(vornamen))
 print(strichliste)
 
