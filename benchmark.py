@@ -1,9 +1,9 @@
 """ 
 Benchmark stuff
 """
-from wonderwords import RandomWord
 from collections import Counter
 import cProfile
+from wonderwords import RandomWord
 
 text = []
 
