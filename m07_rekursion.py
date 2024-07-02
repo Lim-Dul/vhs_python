@@ -38,6 +38,7 @@ def fib(n):
 
 print(fib(wunschzahl))
 
+
 # Rekursive Lösung (Rekursion: Eine Funktion, die sich selbst aufruft)
 # Die nächste Zahl der Folge ist die Summe der beiden vorhergehenden Zahlen der Folge.
 # fib(n) = fib(n - 1) + fib(n -2) für n >= 2 # rekursive Definition
@@ -63,6 +64,7 @@ def fib_rekursiv(n):
 
 print(fib_rekursiv(wunschzahl))
 
+
 d = {}
 def fib_rekursiv_memo(n):
     """
@@ -85,15 +87,17 @@ def fib_rekursiv_memo(n):
 
 print(fib_rekursiv_memo(wunschzahl))
 
+
 def hanoi(n, start, hilf, ziel):
     """
-    _summary_
+    Gibt die Abfolge von Aktionen zurück, um Turm von Hanoi
+    mit n Scheiben auf start, hilf und ziel benannte "Säulen" zu verteilen
 
     Arguments:
-        n -- _description_
-        start -- _description_
-        hilf -- _description_
-        ziel -- _description_
+        n -- integer: Wie viele Scheiben hat der Turm?
+        start -- string: name der Start-Säule
+        hilf -- string: name der Hilfs-Säule
+        ziel -- string: name der Ziel-Säule
     """
     if n == 0:
         return
@@ -102,3 +106,22 @@ def hanoi(n, start, hilf, ziel):
     hanoi(n - 1, hilf, start, ziel)
 
 hanoi(5, "a", "b", "c")
+
+def mach_schoener(funktion):
+    """
+    _summary_
+
+    Arguments:
+        funktion -- _description_
+
+    Returns:
+        _description_
+    """
+    ds = {}
+    def schoenere_funktion(n):
+        if n in ds:
+            return ds[n]
+        ds[n] = funktion(n)
+        return ds[n]
+
+    return schoenere_funktion
