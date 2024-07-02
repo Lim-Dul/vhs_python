@@ -45,6 +45,7 @@ print(filtern(temperaturen))
 # Meine Lösung
 def Gte20(number):
     """
+    Gte20 == Greater than or Equal to 20
     Prüft, ob Zahl größer gleich 20 ist
 
     Arguments:
@@ -61,8 +62,8 @@ gefiltert = filter(Gte20, temperaturen)
 print(gefiltert) # Funktioniert nicht wie man denkt
 print(type(gefiltert)) # Was ist denn "gefiltert"? Ein Objekt!
 # Loop funktioniert dann wie man denkt ;)
-for x in gefiltert:
-    print(x)
+for ergebnis in gefiltert:
+    print(ergebnis)
 # Sonst auf Liste casten
 gefiltert = list(filter(Gte20, temperaturen))
 print(gefiltert)
