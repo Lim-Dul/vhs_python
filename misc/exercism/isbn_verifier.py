@@ -1,10 +1,11 @@
 def is_valid(isbn):
-    if len(isbn) != 13:
-        print("WTF?")
-    if isbn[1] and isbn[5] and isbn[11] != "-":
-        print("WTF?")
-    processed = isbn.replace()
-    processed = list(isbn)
-    print(processed)
+    zahlen = list(isbn.replace("-", ""))
+    if len(zahlen)!=10:
+        return False
+    if zahlen[-1] == "X":
+        zahlen[-1] = "10"
+    if not all(zahl.isdigit() for zahl in zahlen):
+        return False
+    return sum(int(x) * y for x, y in zip(zahlen, range(10, 0, -1))) % 11 == 0
 
-is_valid("3-598-21508-8")
+print(is_valid("3-598-21508-8"))
