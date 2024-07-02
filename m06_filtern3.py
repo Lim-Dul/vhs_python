@@ -9,7 +9,7 @@ vornamen = ["Anna", "Peter", "Gabi"]
 
 def GroesserGleich20(temperatur):
     """
-    Einfache Funktion zum Prüfen von Temperaturen.
+    Einfache Funktion zum Prüfen, ob Temperatur größer als oder gleich 20 ist.
 
     Arguments:
         temperatur -- eine Temperatur
@@ -18,6 +18,19 @@ def GroesserGleich20(temperatur):
         Wahr, wenn Temperatur größer oder gleich 20
     """
     return temperatur >= 20
+
+
+def TeilbarDurch2(temperatur):
+    """
+    Einfache Funktion zum Prüfen, ob Temperatur teilbar durch 2 ist.
+
+    Arguments:
+        temperatur -- eine Temperatur
+
+    Returns:
+        Wahr, wenn Temperatur durch 2 teilbar
+    """
+    return temperatur % 2 == 0
 
 
 def filtern(liste, kriterium):
@@ -38,3 +51,4 @@ def filtern(liste, kriterium):
     return gefiltert
 
 print(filtern(temperaturen, GroesserGleich20))
+print(filtern(temperaturen, TeilbarDurch2))
