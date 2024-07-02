@@ -25,6 +25,6 @@ def filtern(liste, kriterium):
     return gefiltert
 
 
-# Mit lambda definiert man eine temporäre Funktion
+# Mit lambda definiert man eine temporäre (namenlose / anonyme) Funktion
 print(filtern(temperaturen, lambda temperatur: temperatur >= 20))
 print(filtern(temperaturen, lambda temperatur: temperatur % 2 == 0))
