@@ -3,22 +3,22 @@ Modul 08: Dekorateur
 """
 
 
-wunschzahl = 42
+wunschzahl = 9
 
 
 # Dekorateur zum "cachen" - wrappt eine Funktion und gibt die "schöner gemachte" zurück
 def mach_schoener(funktion):
     """
-    _summary_
+    Gibt der eingegebenen Funktion einen "Cache" in Form einer "Dictionary"
 
     Arguments:
-        funktion -- _description_
+        funktion -- Funktion, die dekoriert werden soll
 
     Returns:
-        _description_
+        Neue, dekorierte Funktion
     """
     ds = {}
-    
+
     def schoenere_funktion(n):
         if n in ds:
             return ds[n]
