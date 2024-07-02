@@ -1,2 +1,18 @@
+# from collections import Counter
+
 def is_isogram(string):
-    pass
+    """
+    Checks if string is an isogram (no duplicate letters)
+
+    Arguments:
+        string -- string to be checked
+
+    Returns:
+        True if string is isogram
+    """
+    print(string, len(string))
+    print(set(string), len(set(string)))
+    return len(string) == len(set(string))
+
+
+print(is_isogram("eleven")) # eleven sollte False liefern
