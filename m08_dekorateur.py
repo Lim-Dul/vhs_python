@@ -1,8 +1,6 @@
 """
 Modul 08: Dekorateur
 """
-
-
 wunschzahl = 9
 
 
