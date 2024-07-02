@@ -16,7 +16,7 @@ Modul 07: Rekursion
 # 2 3 | 5       n = 4
 # 3 5 | 8       n = 5
 # ...
-
+wunschzahl = 9
 
 def fib(n):
     """
@@ -36,7 +36,7 @@ def fib(n):
 
     return a
 
-print(fib(9))
+print(fib(wunschzahl))
 
 # Rekursive Lösung (Rekursion: Eine Funktion, die sich selbst aufruft)
 # Die nächste Zahl der Folge ist die Summe der beiden vorhergehenden Zahlen der Folge.
@@ -55,13 +55,13 @@ def fib_rekursiv(n):
     Returns:
         Gibt 0 bei 0 zurück und n-te Fibonacci-Zahl bei n > 0
     """
-    if n >= 3:
+    if n >= 2:
         return fib_rekursiv(n - 1) + fib_rekursiv(n - 2)
     if n == 0:
         return 0
     return 1
 
-print(fib_rekursiv(9))
+print(fib_rekursiv(wunschzahl))
 
 d = {}
 def fib_rekursiv_memo(n):
@@ -75,9 +75,30 @@ def fib_rekursiv_memo(n):
     Returns:
         Gibt 0 bei 0 zurück und n-te Fibonacci-Zahl bei n > 0
     """
+    if n in {0, 1}:
+        return n
     if n in d: # Haben wir den Wert für n schon einmal berechnet?
         return d[n] # Wenn ja: Gib diesen einfach zurück, indem du ihn im Wörterbuch nachschlägst.
     if n >= 2:
         d[n] = fib_rekursiv_memo(n - 1) + fib_rekursiv_memo(n - 2)
         return d[n]
-    return 1
+
+print(fib_rekursiv_memo(wunschzahl))
+
+def hanoi(n, start, hilf, ziel):
+    """
+    _summary_
+
+    Arguments:
+        n -- _description_
+        start -- _description_
+        hilf -- _description_
+        ziel -- _description_
+    """
+    if n == 0:
+        return
+    hanoi(n - 1, start, ziel, hilf)
+    print("Bewege Scheibe", n, "von", start, "nach", ziel)
+    hanoi(n - 1, hilf, start, ziel)
+
+hanoi(5, "a", "b", "c")
