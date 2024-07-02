@@ -36,7 +36,8 @@ orte = ["Bad Salzuflen", "Dietzenbach", "Bielefeld", "Bielefeld", "Spenge", "Bie
 # summe = 0
 # anzahl = 0
 
-# # Lies: Für (for) jedes alter in der Liste der altersangaben wiederhole die nachfolgenden Anweisungen:
+# # Lies: Für (for) jedes alter in der Liste der altersangaben
+#  wiederhole die nachfolgenden Anweisungen:
 # for alter in altersangaben:
 #     summe += alter # Kurz für: summe = summe + alter
 #     anzahl += 1 # Kurz für: anzahl = anzahl +1
