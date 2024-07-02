@@ -12,7 +12,8 @@ def leap_year(year):
 
     Returns:
         Wahr, wenn Jahr ein Mehrfaches von 4,
-        außer wenn Mehrfaches von 100, außer wenn auch ein Mehrfaches von 400
+        außer wenn gleichzeitig Mehrfaches von 100, dann Falsch
+        außer wenn auch gleichzeitig ein Mehrfaches von 400, dann wieder Wahr.
     """
     if year % 400 == 0: # seltenster Fall zuerst
         return True
