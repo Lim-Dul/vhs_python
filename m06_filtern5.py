@@ -15,10 +15,11 @@ def GroesserGleich20(temperatur):
     """
     return temperatur >= 20
 
+
 temperaturen = [-12, 5, 23, 17, 25]
 vornamen = ["Anna", "Peter", "Gabi"]
 
 # Mit lambda definiert man eine temporäre (namenlose / anonyme) Funktion
-print(filter(temperaturen, GroesserGleich20))
-print(filter(temperaturen, lambda temperatur: temperatur >= 20))
-print(filter(temperaturen, lambda temperatur: temperatur % 2 == 0))
+#print(filter(temperaturen, GroesserGleich20))
+print(list(filter(GroesserGleich20, temperaturen)))
+print(list(filter(lambda temperatur: temperatur % 2 == 0, temperaturen)))
