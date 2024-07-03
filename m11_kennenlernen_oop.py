@@ -4,6 +4,7 @@ Modul 11: Teilnehmer jetzt mit Objekten
 from datetime import date
 from statistics import mean
 
+
 class Teilnehmer:
     """
     Teilnehmer eines Kurses
