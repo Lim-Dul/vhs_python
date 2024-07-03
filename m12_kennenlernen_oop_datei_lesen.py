@@ -2,6 +2,7 @@
 Modul 11: Teilnehmer jetzt mit Objekten
 """
 from datetime import date
+from dateutil import parser
 from statistics import mean
 import pandas as pd
 
@@ -35,39 +36,45 @@ class Teilnehmer:
         return jahre
 
 
-teilnehmerliste = pd.read_csv("teilnehmer.csv", delimiter=";")
-print(teilnehmerliste)
+# Pandas liest die CSV-Datei in sein eigenes internes tabellenartiges Format ein,
+# das man DataFrame nennt.
+df = pd.read_csv("teilnehmer.csv", delimiter=";")
 
-# # Vorname des zweiten Teilnehmers:
-# print(teilnehmerliste[1].vorname)
+teilnehmerliste = []
+for _, teilnehmer in df.iterrows():
+    datum = parser.parse(teilnehmer["Geburtsdatum"])
+    teilnehmerliste.append(Teilnehmer(teilnehmer["Vorname"], datum, teilnehmer["Ort"]))
 
-# # Felix zieht um nach Frankfurt.
-# print(teilnehmerliste[0].ort)
-# teilnehmerliste[0].ort = "Frankfurt"
-# print(teilnehmerliste[0].ort)
+# Vorname des zweiten Teilnehmers:
+print(teilnehmerliste[1].vorname)
 
-# # Wie alt sind Jan und Felix?
-# for _ in teilnehmerliste:
-#     print(_.alter())
+# Felix zieht um nach Frankfurt.
+print(teilnehmerliste[0].ort)
+teilnehmerliste[0].ort = "Frankfurt"
+print(teilnehmerliste[0].ort)
 
-# # Berechne das Durchschnittsalter der Teilnehmer in der teilnehmerliste:
-# # a) for-Schleife
-# summe_alter = 0
-# anzahl_teilnehmer = len(teilnehmerliste)
-# for teilnehmer in teilnehmerliste:
-#     summe_alter += teilnehmer.alter()
-#     durchschnitt_alter = summe_alter / anzahl_teilnehmer
+# Wie alt sind Jan und Felix?
+for _ in teilnehmerliste:
+    print(_.alter())
 
-# print(durchschnitt_alter)
+# Berechne das Durchschnittsalter der Teilnehmer in der teilnehmerliste:
+# a) for-Schleife
+summe_alter = 0
+anzahl_teilnehmer = len(teilnehmerliste)
+for teilnehmer in teilnehmerliste:
+    summe_alter += teilnehmer.alter()
+    durchschnitt_alter = summe_alter / anzahl_teilnehmer
 
-# # b) Zwischenüberlegung: Wie bekomme ich eine Liste der Altersangaben?
-# altersangaben = []
-# for teilnehmer in teilnehmerliste:
-#     altersangaben.append(teilnehmer.alter())
+print(durchschnitt_alter)
 
-# print(sum(altersangaben) / len(altersangaben))
+# b) Zwischenüberlegung: Wie bekomme ich eine Liste der Altersangaben?
+altersangaben = []
+for teilnehmer in teilnehmerliste:
+    altersangaben.append(teilnehmer.alter())
 
-# # c) List comprehension (und mean)
-# altersangaben = [teilnehmer.alter() for teilnehmer in teilnehmerliste]
+print(sum(altersangaben) / len(altersangaben))
 
-# print(mean(altersangaben))
+# c) List comprehension (und mean)
+altersangaben = [teilnehmer.alter() for teilnehmer in teilnehmerliste]
+
+print(mean(altersangaben))
