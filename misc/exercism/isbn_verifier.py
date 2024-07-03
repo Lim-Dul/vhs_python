@@ -23,8 +23,8 @@ def is_valid(isbn):
         return False
     print(zahlen)
     checksumme = 0
-    for i in reversed(range(len(zahlen))):
-        checksumme = checksumme + int(zahlen[i]) * (10 - i)
+    for i, zahl in enumerate(zahlen):
+        checksumme = checksumme + int(zahl) * (10 - i)
         # print("Multiplying", int(zahlen[i]), "by", (10 - i), "equals", int(zahlen[i]) * (10 - i))
     if checksumme % 11 == 0:
         return True
