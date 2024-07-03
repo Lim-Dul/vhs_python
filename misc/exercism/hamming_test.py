@@ -30,25 +30,25 @@ class HammingTest(unittest.TestCase):
             distance("AATG", "AAA")
 
         self.assertEqual(type(err.exception), ValueError)
-        self.assertEqual(err.exception.args[0], "Strands must be of equal length.")
+        self.assertEqual(err.exception.args[0], "DNA-Stränge müssen die gleiche Länge haben.")
 
     def test_disallow_second_strand_longer(self):
         with self.assertRaises(ValueError) as err:
             distance("ATA", "AGTG")
 
         self.assertEqual(type(err.exception), ValueError)
-        self.assertEqual(err.exception.args[0], "Strands must be of equal length.")
+        self.assertEqual(err.exception.args[0], "DNA-Stränge müssen die gleiche Länge haben.")
 
     def test_disallow_empty_first_strand(self):
         with self.assertRaises(ValueError) as err:
             distance("", "G")
 
         self.assertEqual(type(err.exception), ValueError)
-        self.assertEqual(err.exception.args[0], "Strands must be of equal length.")
+        self.assertEqual(err.exception.args[0], "DNA-Stränge müssen die gleiche Länge haben.")
 
     def test_disallow_empty_second_strand(self):
         with self.assertRaises(ValueError) as err:
             distance("G", "")
 
         self.assertEqual(type(err.exception), ValueError)
-        self.assertEqual(err.exception.args[0], "Strands must be of equal length.")
+        self.assertEqual(err.exception.args[0], "DNA-Stränge müssen die gleiche Länge haben.")
