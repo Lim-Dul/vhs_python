@@ -58,8 +58,8 @@ anzahl_teilnehmer = len(teilnehmerliste)
 for teilnehmer in teilnehmerliste:
     summe_alter += teilnehmer.alter()
     durchschnitt_alter = summe_alter / anzahl_teilnehmer
-print(durchschnitt_alter)
 
+print(durchschnitt_alter)
 
 # b) Zwischenüberlegung: Wie bekomme ich eine Liste der Altersangaben?
 altersangaben = []
