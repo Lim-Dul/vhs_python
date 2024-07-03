@@ -52,7 +52,8 @@ for _ in teilnehmerliste:
 
 # Berechne das Durchschnittsalter der Teilnehmer in der teilnehmerliste:
 summe_alter = 0
+anzahl_teilnehmer = 0
 for teilnehmer in teilnehmerliste:
     summe_alter += teilnehmer.alter()
-    durchschnitt_alter = summe_alter / len(teilnehmerliste)
+    durchschnitt_alter = summe_alter / anzahl_teilnehmer
 print(durchschnitt_alter)
