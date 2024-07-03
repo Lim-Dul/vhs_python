@@ -10,7 +10,7 @@ vornamen = ["Anna", "Peter", "Gabi"]
 def filtern(liste, lb):
     """
     Iteriert über eine Liste von Elementen und prüft, ob ein Element größer als 20 ist.
-
+    
     Arguments:
         liste -- Liste von Zahlen
         lb -- Lower Bound
