@@ -1,14 +1,23 @@
 """
-Modul 11: Wörterbuch als Zwischenschritt zu OOP
+Modul 11: Wörterbuch als Zwischenschritt zu OOP, diesmal mit Alter
 """
 from datetime import date
 
 
 def alter(teilnehmer):
+    """
+    Berechnet das Alter eines Teilnehmers
+
+    Arguments:
+        teilnehmer -- Wörterbuch im Format {"vorname": str, "geburtsdatum": date, "ort": str}
+
+    Returns:
+        Alter als Int
+    """
     datum = teilnehmer["geburtsdatum"]
     heute = date.today()
     jahre = heute.year - datum.year
-    if (heute.month, heute.day) <= (datum.month, datum.day):
+    if (heute.month, heute.day) < (datum.month, datum.day): # Hatte er noch nicht Geburtstag?
         jahre -= 1
     return jahre
 

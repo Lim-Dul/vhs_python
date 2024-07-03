@@ -23,14 +23,3 @@ print(teilnehmerliste[1]["vorname"])
 print(teilnehmerliste[0]["ort"])
 teilnehmerliste[0]["ort"] = "Frankfurt"
 print(teilnehmerliste[0]["ort"])
-
-# Wie alt ist Jan?
-datum = teilnehmerliste[1]["geburtsdatum"]
-heute = date.today()
-
-alter = heute.year - datum.year
-if (heute.month, heute.day) <= (datum.month, datum.day):
-    alter -= 1
-
-print(type(alter))
-print(alter)
