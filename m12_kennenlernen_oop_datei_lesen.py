@@ -28,14 +28,21 @@ class Teilnehmer:
         Returns:
             Alter als Int
         """
-        datum = self.geburtsdatum
+        geburtstag = self.geburtsdatum
         heute = date.today()
-        jahre = heute.year - datum.year
-        if (heute.month, heute.day) < (datum.month, datum.day): # Hatte er noch nicht Geburtstag?
+        jahre = heute.year - geburtstag.year
+        # Hatte er noch nicht Geburtstag?
+        if (heute.month, heute.day) < (geburtstag.month, geburtstag.day):
             jahre -= 1
         return jahre
 
     def to_dict(self):
+        """
+        Konvertiert alle Atrribute in ein Wörterbuch
+
+        Returns:
+            Wörterbuch mit allen Attributen
+        """
         return {
             "Vorname": self.vorname,
             "Geburtsdatum": self.geburtsdatum,
