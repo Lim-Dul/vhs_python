@@ -20,8 +20,10 @@ distanz_orte = []
 for ort in orte:
     location = geolocator.geocode(ort)
     latlong_ort = (location.latitude, location.longitude)
-    distanz_ort = distance.distance(latlong_ort, latlong_ziel).km
-    distanz_orte.append((distanz_ort, ort))
+    distanz_ort_geo = distance.distance(latlong_ort, latlong_ziel).km
+    distanz_ort_gc = distance.great_circle(latlong_ort, latlong_ziel).km
+    distanz_orte.append((distanz_ort_geo, distanz_ort_gc, ort))
 
-print(distanz_orte)
+print(*distanz_orte, sep="\n")
+print("Größte Entfernung:")
 print(max(distanz_orte))
