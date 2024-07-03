@@ -2,8 +2,8 @@
 Modul 11: Teilnehmer jetzt mit Objekten
 """
 from datetime import date
-from dateutil import parser
 from statistics import mean
+from dateutil import parser
 import pandas as pd
 
 class Teilnehmer:
@@ -35,10 +35,18 @@ class Teilnehmer:
             jahre -= 1
         return jahre
 
+    def to_dict(self):
+        return {
+            "Vorname": self.vorname,
+            "Geburtsdatum": self.geburtsdatum,
+            "Ort": self.ort
+        }
+
 
 # Pandas liest die CSV-Datei in sein eigenes internes tabellenartiges Format ein,
 # das man DataFrame nennt.
-df = pd.read_csv("teilnehmer.csv", delimiter=";")
+dateiname = "teilnehmer.csv"
+df = pd.read_csv(dateiname, sep=";")
 
 teilnehmerliste = []
 for _, teilnehmer in df.iterrows():
@@ -49,9 +57,19 @@ for _, teilnehmer in df.iterrows():
 print(teilnehmerliste[1].vorname)
 
 # Felix zieht um nach Frankfurt.
-print(teilnehmerliste[0].ort)
-teilnehmerliste[0].ort = "Frankfurt"
-print(teilnehmerliste[0].ort)
+idx = [teilnehmer.vorname for teilnehmer in teilnehmerliste].index("Felix")
+print(teilnehmerliste[idx].ort)
+teilnehmerliste[idx].ort = "Frankfurt"
+print(teilnehmerliste[idx].ort)
+
+# Abspeichern der Teilnehmer in der CSV-Datei
+liste = []
+for teilnehmer in teilnehmerliste:
+    liste.append(teilnehmer.to_dict())
+
+df = pd.DataFrame(liste)
+df.to_csv(dateiname, sep=";", index=False)
+print(df)
 
 # Wie alt sind Jan und Felix?
 for _ in teilnehmerliste:
