@@ -23,15 +23,15 @@ class Kalender:
 
         if self.ist_schaltjahr() and self.monat == 2:
             korrektur = 1
-        korrektur = 0
+        else:
+            korrektur = 0
 
         if self.tag > Kalender.TAGE_PRO_MONAT[self.monat] + korrektur:
-            if self.tag > 31:
-                self.tag = 1
-                self.monat += 1
-                if self.monat > 12:
-                    self.monat = 1
-                    self.jahr += 1
+            self.tag = 1
+            self.monat += 1
+        if self.monat > 12:
+            self.monat = 1
+            self.jahr += 1
 
     # def wochentag(self):
 
@@ -41,5 +41,8 @@ class Kalender:
 
 k = Kalender(2024, 2, 28)
 print(k)
+k.naechsterTag()
+print(k)
+k = Kalender(2024, 12, 31)
 k.naechsterTag()
 print(k)
