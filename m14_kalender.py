@@ -34,7 +34,7 @@ class Kalender:
         self.monat += 1
         if self.monat > 12:
             self.monat = 1
-            self.naechstesJahr
+            self.naechstesJahr()
 
     def naechstesJahr(self):
         self.jahr += 1
@@ -45,11 +45,11 @@ class Kalender:
 
     # def diff(Kalender):
 
-k = Kalender(2024, 2, 28)
-print(k)
-k.naechsterTag()
-print(k)
-k = Kalender(2024, 12, 31)
-print(k)
-k.naechsterTag()
-print(k)
+# k = Kalender(2024, 2, 28)
+# print(k)
+# k.naechsterTag()
+# print(k)
+# k = Kalender(2024, 12, 31)
+# print(k)
+# k.naechsterTag()
+# print(k)
