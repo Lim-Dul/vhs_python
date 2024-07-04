@@ -2,7 +2,9 @@
 _summary_
 """
 import locale
+from datetime import datetime
 import requests
+import pandas as pd
 
 locale.setlocale(locale.LC_ALL, "de_DE.UTF-8")
 
@@ -25,3 +27,5 @@ for url in urls:
     prices[url] = price
 
 print(prices)
+df = pd.DataFrame((url, price, datetime.now()) for url, price in prices.items())
+df.to_excel("m18_prices.xlsx")
