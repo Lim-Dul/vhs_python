@@ -29,9 +29,9 @@ class Kalender:
         if self.tag > Kalender.TAGE_PRO_MONAT[self.monat] + korrektur:
             self.tag = 1
             self.monat += 1
-        if self.monat > 12:
-            self.monat = 1
-            self.jahr += 1
+            if self.monat > 12:
+                self.monat = 1
+                self.jahr += 1
 
     # def wochentag(self):
 
