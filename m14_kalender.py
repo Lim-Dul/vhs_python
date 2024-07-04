@@ -8,7 +8,7 @@ class Kalender:
         self.monat = monat
         self.tag = tag
 
-    def __repr__(self) -> str:
+    def __repr__(self):
         # return str(self.jahr) + "-" + str(self.monat) + "-" + str(self.tag)
         # return "%04i-%02i-%02i" % (self.jahr, self.monat, self.tag)
         return f"{self.jahr:04d}-{self.monat:02d}-{self.tag:02d}"
