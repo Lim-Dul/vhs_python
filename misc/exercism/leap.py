@@ -22,3 +22,5 @@ def leap_year(year):
     if year % 4 == 0: # 4 als häufigster Fall
         return True
     return False
+    # Einzeiler-Lösung:
+    # return year % 400 == 0 or (year % 100 != 0 and year % 4 == 0)
