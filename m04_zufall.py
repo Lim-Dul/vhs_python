@@ -8,7 +8,7 @@ from random import randint, sample
 # print(augenzahl)
 
 # Lotto-Ziehung "6 aus 49"
-# Schreibe ein Programm, das 6 verschiedene zufällige 
+# Schreibe ein Programm, das 6 verschiedene zufällige
 lottozahlen = []
 i = 0
 while len(lottozahlen) < 6:
@@ -19,9 +19,8 @@ while len(lottozahlen) < 6:
     if kugel in lottozahlen: # Check, ob sie schon einmal gezogen wurde
         # print("Kugel", kugel, "war schon gezogen.")
         continue # Einfach nix machen (nächste Iteration)
-    else:
-        lottozahlen.append(kugel) # Zahl in die Liste aufnehmen
-        # print("Lottozahlen bisher:", lottozahlen)
+    lottozahlen.append(kugel) # Zahl in die Liste aufnehmen
+    # print("Lottozahlen bisher:", lottozahlen)
 print("Lottozahlen für heute:", lottozahlen)
 
 # Die Lösung mit sample
