@@ -1,0 +1,12 @@
+[
+    {
+        "vorname": "Felix",
+        "geburtsdatum": "1994-12-22",
+        "ort": "Bad Salzufen"
+    },
+    {
+        "vorname": "Jan",
+        "geburtsdatum": "1983-12-20",
+        "ort": "Dietzenbach"
+    }
+]
