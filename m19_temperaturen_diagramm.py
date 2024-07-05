@@ -1,11 +1,21 @@
 import datetime
 import matplotlib.pyplot as plt
+from geopy import Nominatim
 from metno_locationforecast import Place, Forecast
 
-ort = Place("Madrid", 52.0302, 8.5325)
-forecast = Forecast(ort, "daniel_vhs_bielefeld")
+ort = "Bielefeld"
+agent = "vhs-bielefeld-platz11"
+
+# Geopy
+geolocator = Nominatim(user_agent=agent)
+location = geolocator.geocode(ort)
+
+# Metno
+place = Place(ort, latitude=location.latitude, longitude=location.longitude)
+forecast = Forecast(place, agent)
 forecast.update()
 
+# Listen fürs Plotten vorbereiten
 times = []
 temperatures = []
 
@@ -21,7 +31,7 @@ plt.xlabel('Uhrzeit')
 plt.ylabel('Temperatur (°C)')
 
 # Titel hinzufügen
-plt.title('Temperaturverlauf im Laufe des Tages')
+plt.title(f'Temperaturverlauf in {ort} im Laufe des Tages')
 
 # Zeige das Diagramm an
 plt.grid(True)
