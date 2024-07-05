@@ -10,9 +10,9 @@ class VierGewinnt(object):
         self.leer_symbol = leer_symbol
 
         self.brett = []
-        for i in range(anzahl_zeilen):
+        for _ in range(anzahl_zeilen):
             zeile = []
-            for j in range(anzahl_spalten):
+            for _ in range(anzahl_spalten):
                 zeile.append(leer_symbol)
             self.brett.append(zeile)
 
