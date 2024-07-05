@@ -4,6 +4,7 @@ _summary_
 Returns:
     _description_
 """
+
 from m14_kalender import Kalender
 from m15_uhr import Uhr
 
@@ -16,14 +17,24 @@ class KalenderUhr(Kalender, Uhr):
         return Kalender.__repr__(self) + " " + Uhr.__repr__(self)
 
     def checkMitternacht(self):
-        if self.stunde == 0:
+        if (self.stunde, self.minute, self.sekunde) == (0, 0, 0):
             Kalender.naechsterTag(self)
 
     def naechsteSekunde(self):
         Uhr.naechsteSekunde(self)
         self.checkMitternacht()
 
+    def naechsteMinute(self):
+        Uhr.naechsteMinute(self)
+        self.checkMitternacht()
+
+    def naechsteStunde(self):
+        Uhr.naechsteStunde(self)
+        self.checkMitternacht()
+
 ku = KalenderUhr(2024, 12, 31, 23, 59, 59)
 print(ku)
 ku.naechsteSekunde()
+print(ku)
+ku.naechsteMinute()
 print(ku)
