@@ -1,3 +1,6 @@
+import random
+
+
 class VierGewinnt(object):
     def __init__(self, anzahl_zeilen=6, anzahl_spalten=7, spieler_symbol="X", computer_symbol="O", leer_symbol="."):
         self.anzahl_zeilen = anzahl_zeilen
@@ -36,7 +39,7 @@ class VierGewinnt(object):
         print(f"Du bist am Zug. Dein Symbol ist {self.spieler_symbol}.")
         while True:
             try:
-                spalte = int(input("In welcher Spalte möchtest Du Deinen Stein setzen?"))
+                spalte = int(input("In welcher Spalte möchtest Du Deinen Stein setzen? "))
                 if spalte in range(self.anzahl_spalten) and self.finde_freie_zeile(spalte) is not None:
                     break
             except ValueError:
@@ -47,12 +50,17 @@ class VierGewinnt(object):
 
         self.brett[self.finde_freie_zeile(spalte)][spalte] = self.spieler_symbol
 
+    def computer_zug(self):
+        gueltige_spalten = [spalte for spalte in range(self.anzahl_spalten) if self.finde_freie_zeile(spalte) is not None]
+        spalte = random.choice(gueltige_spalten)
+        self.brett[self.finde_freie_zeile(spalte)][spalte] = self.computer_symbol
+
     def hat_gewonnen(self, symbol):
         # horizontal
         for zeile in self.brett:
             zeile_str = "".join(zeile)
             try:
-                if zeile_str.index(symbol * 4):
+                if zeile_str.index(symbol * 4) >= 0:
                     return True
             except ValueError:
                 pass
@@ -61,7 +69,7 @@ class VierGewinnt(object):
         for spalte in range(self.anzahl_spalten):
             spalte_str = "".join(zeile[spalte] for zeile in self.brett)
             try:
-                if spalte_str.index(symbol * 4):
+                if spalte_str.index(symbol * 4) >= 0:
                     return True
             except ValueError:
                 pass
@@ -71,18 +79,18 @@ class VierGewinnt(object):
         return False
 
     def start_spiel(self):
-        print(self)  # Spielbrett anzeigen
-        self.spieler_zug()  # Nächster Zug: Spieler
-        if self.hat_gewonnen(self.spieler_symbol):
-            print("Du hast gewonnen!")
-            return
-        # TODO: Nächster Zug: Computer
-        if self.hat_gewonnen(self.computer_symbol):
-            print("Ätsch, ich habe gewonnen!")
-            return
-
-
-
+        while True:
+            print(self)  # Spielbrett anzeigen
+            self.spieler_zug()  # Nächster Zug: Spieler
+            if self.hat_gewonnen(self.spieler_symbol):
+                print(self) # Spielbrett anzeigen
+                print("Du hast gewonnen!")
+                return
+            self.computer_zug() # Nächster Zug: Computer
+            if self.hat_gewonnen(self.computer_symbol):
+                print(self) # Spielbrett anzeigen
+                print("Ätsch, ich habe gewonnen!")
+                return
 
 
 spiel = VierGewinnt()
